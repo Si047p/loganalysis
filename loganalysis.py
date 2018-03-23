@@ -8,9 +8,9 @@ c.execute(
   "select articles.title,count(*) as p_views from log join articles\
   on log.path ~ articles.slug group by articles.title order by p_views desc;")
 mostpopular = c.fetchall()
-print ("Most Popular Articles")
+print("Most Popular Articles")
 for i in mostpopular:
-    print (i)
+    print(i)
 c.close()
 
 db = psycopg2.connect("dbname=news")
@@ -22,7 +22,7 @@ c.execute(
 mostpopular = c.fetchall()
 print("Most Popular Article Authors")
 for i in mostpopular:
-    print (i)
+    print(i)
 db.close()
 
 db = psycopg2.connect("dbname=news")
@@ -36,5 +36,5 @@ c.execute(
 perc_error = c.fetchall()
 print("Days Experiencing > 1% in Page Errors")
 for i in perc_error:
-    print (perc_error)
+    print(perc_error)
 db.close()
